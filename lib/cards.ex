@@ -28,6 +28,15 @@ defmodule Cards do
   end
 
   #? appended by convetion when boolean is returned
+  @doc """
+  Check if a hand exists in the deck in the form of a tuple
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck,{"Spades", "Ace"})
+      true
+  """
   def contains?(deck,hand) do
     Enum.member?(deck,hand)
   end
@@ -40,9 +49,9 @@ defmodule Cards do
   ## Examples
 
         iex> deck = Cards.create_deck
-        iex> {hand, deck} = Cards.deal(deck,1)
+        iex> hand = Cards.deal(deck,1)
         iex> hand
-        ["Ace of Spades"]
+        [{"Spades", "Ace"}]
   """
   def deal(deck, hand_size) do
     elem(Enum.split(deck,hand_size),0)
